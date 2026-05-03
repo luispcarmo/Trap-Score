@@ -373,9 +373,18 @@ function Header({ view, onHome }) {
   const label = view === "session" ? "EM TIRO" : view === "history" ? "ARQUIVO" : view === "detail" ? "DETALHE" : "PRONTO";
   return (
     <header className="flex items-center justify-between pb-5 border-b border-neutral-200">
-      <button onClick={onHome} className="flex items-center gap-2.5 group">
-        <div className="relative flex items-center justify-center h-9 w-9 rounded-full bg-neutral-900">
-          <Crosshair className="h-5 w-5 text-white" strokeWidth={1.75}/>
+      <button onClick={onHome} className="flex items-center gap-2.5 group hover:opacity-80 transition">
+        <div className="relative flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 shadow-md overflow-hidden">
+          <svg className="h-6 w-6 text-white" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(30, 40) scale(1.2)">
+              <circle cx="20" cy="15" r="8" fill="#FFF" opacity="0.9"/>
+              <ellipse cx="20" cy="35" rx="7" ry="12" fill="#FFF"/>
+              <line x1="20" y1="30" x2="45" y2="20" stroke="#FFF" strokeWidth="2.5" strokeLinecap="round"/>
+              <line x1="45" y1="20" x2="58" y2="15" stroke="#FFF" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 58 15 Q 70 10 80 8" stroke="#FFF" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+              <circle cx="75" cy="5" r="1.5" fill="#FCA5A5"/>
+            </g>
+          </svg>
         </div>
         <div className="text-left">
           <div className="text-[10px] tracking-[0.35em] text-neutral-400 leading-none">TRAP</div>
@@ -389,6 +398,7 @@ function Header({ view, onHome }) {
     </header>
   );
 }
+
 
 function HomeView({ history, hasDraft, onStart, onResume, onHistory }) {
   const stats = useMemo(() => {
