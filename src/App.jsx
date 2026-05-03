@@ -399,7 +399,6 @@ function Header({ view, onHome }) {
   );
 }
 
-
 function HomeView({ history, hasDraft, onStart, onResume, onHistory }) {
   const stats = useMemo(() => {
     if (!history.length) return null;
